@@ -12,17 +12,9 @@ public class SeekBehaviour : SteeringBehaviour
     {
         DesiredVelocity = (Target - transform.position).normalized * speed;
 
+
         return DesiredVelocity - Velocity;
     }
 
-    private void Start()
-    {
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-       
-
-    }
+   
 }

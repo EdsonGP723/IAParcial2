@@ -232,8 +232,10 @@ GameObject:
   - component: {fileID: 756672327}
   - component: {fileID: 756672326}
   - component: {fileID: 756672325}
+  - component: {fileID: 756672332}
+  - component: {fileID: 756672333}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Enemie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviours:
+  - {fileID: 756672333}
   - {fileID: 756672325}
   rb: {fileID: 756672328}
   velocity: {x: 0, y: 0, z: 0}
@@ -367,6 +370,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756672332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756672324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2571fce251db5b48b3e163fcf679a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
+--- !u!114 &756672333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756672324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b7c5eedec5d3541b991c358ad5bf9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  DesiredVelocity: {x: 0, y: 0, z: 0}
+  Velocity: {x: 0, y: 0, z: 0}
+  Position: {x: 0, y: 0, z: 0}
+  Target: {x: 0, y: 0, z: 0}
+  runAwayCircle: 2
+  safeRadius: 5
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,8 +498,9 @@ GameObject:
   - component: {fileID: 1558664498}
   - component: {fileID: 1558664497}
   - component: {fileID: 1558664496}
+  - component: {fileID: 1558664500}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,3 +584,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1558664500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558664495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef371a6b5c9f08448a05b97f4bca67cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

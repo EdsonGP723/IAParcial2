@@ -25,11 +25,16 @@ public class BehaviourController : MonoBehaviour
         totalforce= Vector3.zero;
         foreach (SteeringBehaviour behaviour in behaviours) {
 
+            behaviour.Target = GetComponent<EnemieController>().target;
+
             totalforce += behaviour.GetForce();
-        
+
+            velocity = Vector3.ClampMagnitude(velocity + totalforce, behaviour.speed);
+
+            transform.position += velocity * Time.deltaTime;
         }
 
         velocity += totalforce;
-        transform.position += velocity * Time.deltaTime;
+        
     }
 }
