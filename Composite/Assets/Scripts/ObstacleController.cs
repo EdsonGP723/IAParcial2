@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ public class ObstacleController : MonoBehaviour
     [SerializeField] private int obstacles;
 
     public List<GameObject> Obstacles => _obstacles;
-    private List<GameObject> _obstacles = new();
+	private List<GameObject> _obstacles = new List<GameObject>();
 
     void Start()
     {
