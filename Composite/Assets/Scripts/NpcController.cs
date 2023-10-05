@@ -1,34 +1,45 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcController : MonoBehaviour
+public class NPCController : MonoBehaviour
 {
-	public List<Vector3> targetPoints = new List<Vector3>();
-	public SeekBehaviour seek;
-	public float distance;
-	private int _index = 0;
+    [SerializeField] List<Transform> targetPoints = new List<Transform>();
 
+    public Seek Seek;
+
+    private int _index = 1;
+
+    public float distance;
+    // Start is called before the first frame update
+
+    private void Start()
+    {
+        NextPoint();
+    }
+    // Update is called once per frame
     void Update()
     {
-	    var actualPoint = targetPoints[_index];
-	    
-	    if (Vector3.Distance(actualPoint,transform.position)< distance){
-	    	nextPoint();
-	    }
-	    seek.Target = targetPoints[_index];
+        if (Vector3.Distance(transform.position,targetPoints[_index].position)<=distance)
+        {
+            NextPoint();
+           
+        }
+        Debug.Log(_index);
+
     }
-	
-	void nextPoint()
-	{
-		if (_index == targetPoints.Count - 1){
-			_index = 0;
-		}
-		else {
-			_index ++;
-		}
-	}
-    
- 
- 
+
+    private void NextPoint()
+    {
+        if (_index >= targetPoints.Count-1)
+        {
+            _index = 0;
+        }
+        else
+        {
+            _index++;
+        }
+
+        Seek.Target = targetPoints[_index].position;
+    }
 }

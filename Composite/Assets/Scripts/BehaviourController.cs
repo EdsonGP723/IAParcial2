@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BehaviourController : MonoBehaviour
 {
-    public List<SteeringBehaviour> behaviours = new List<SteeringBehaviour>();
+    public List<Steering> behaviours = new List<Steering>();
     public Rigidbody rb;
     public Vector3 velocity;
 	public Vector3 totalforce = Vector3.zero;
@@ -15,11 +15,10 @@ public class BehaviourController : MonoBehaviour
 	{
 		totalforce= Vector3.zero;
         
-        foreach (SteeringBehaviour behaviour in behaviours) {
+        foreach (Steering behaviour in behaviours) {
 
-	                  
-	        behaviour.Position = transform.position;
-	        behaviour.Velocity = velocity;
+			behaviour.Position = transform.position;
+			behaviour.Velocity = velocity;
             totalforce += behaviour.GetForce();
 
         }
@@ -27,7 +26,6 @@ public class BehaviourController : MonoBehaviour
 		velocity = Vector3.ClampMagnitude(velocity + totalforce, maxForce);
 
 	    transform.position += velocity * Time.deltaTime;
-       
         
     }
 }
